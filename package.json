@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "turbo dev"
+    "dev": "dotenvx run -- turbo dev --global-deps='.env.*'"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,10 @@
   },
   "packageManager": "npm@10.8.1",
   "dependencies": {
-    "@nestjs/config": "^3.2.2"
+    "@dotenvx/dotenvx": "^0.44.5",
+    "@nestjs/config": "^3.2.2",
+    "@nestjs/typeorm": "^10.0.2",
+    "pg": "^8.12.0",
+    "typeorm": "^0.3.20"
   }
 }
