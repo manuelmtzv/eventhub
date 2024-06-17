@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  session-store:
+    image: redis:7.0.15-alpine
+    ports:
+      - '6379:6379'
+    command: redis-server --requirepass password
+    volumes:
+      - sessions:/data
+
+  database:
+    image: postgres:16-alpine
+    env_file:
+      - './.env'
+    volumes:
+      - eventhub-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+volumes:
+  sessions:
+  eventhub-db:
